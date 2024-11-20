@@ -21,7 +21,7 @@ export class agregarProductoController {
     async run(req: Request, res: Response): Promise<Response> {
         try {
             const nuevoProducto = req.body as Productos;
-
+            console.log(nuevoProducto)
             if (
                 !nuevoProducto.id_Productos ||
                 !nuevoProducto.Nombre ||
@@ -51,13 +51,13 @@ export class deleteProductoController {
 
     async run(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_Producto } = req.params;
-
-            if (!id_Producto) {
+            const { id_Dispositivo } = req.params;
+            console.log(id_Dispositivo)
+            if (!id_Dispositivo) {
                 return res.status(400).json({ message: "Faltan datos" });
             }
 
-            await this.deleteProducto.run(parseInt(id_Producto));
+            await this.deleteProducto.run(parseInt(id_Dispositivo));
             return res.status(200).json({ message: "Producto eliminado" });
         } catch (error: any) {
             return res.status(500).json({ message: `Error eliminando producto: ${error.message}` });

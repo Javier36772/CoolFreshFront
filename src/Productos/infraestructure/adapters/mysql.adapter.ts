@@ -40,7 +40,7 @@ export class MySqlAdapter implements ProductosProductos {
     // Eliminar un producto por ID
     async delteProductos(id_Producto: number): Promise<void> {
         try {
-            const query = "DELETE FROM productos WHERE id_Producto = ?";
+            const query = "DELETE FROM productos WHERE id_Productos = ?";
             await db.execute(query, [id_Producto]);
         } catch (err: any) {
             throw new Error(`Error deleting producto: ${err.message}`);

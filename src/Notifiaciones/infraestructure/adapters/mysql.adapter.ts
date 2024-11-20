@@ -17,17 +17,19 @@ export class MySqlAdapter implements NotifiacionesNotificaciones {
 
     async agregarNotifiaciones(nuevaNotifiacion: Notifiaciones): Promise<void> { // Método renombrado
         try {
-            const { id_Notificaciones, Fk_Dispositivos, Fk_Productos, tipo, mensaje, fecha_envio } = nuevaNotifiacion; // Ajuste a Notifiaciones
+            const { id_Notificaciones, Fk_Dispositivos, Fk_Productos, tipo, mensaje, fecha_envio,estado } = nuevaNotifiacion; // Ajuste a Notifiaciones
             const query = `
-            INSERT INTO notificaciones (id_Notificaciones, Fk_Dispositivos, Fk_Productos, tipo, mensaje, fecha_envio) 
-            VALUES (?,?,?,?,?,?)`; // Ajustado para reflejar la tabla notificaciones
+            INSERT INTO notificaciones (id_Notificaciones, Fk_Dispositivos, Fk_Productos, tipo, mensaje, fecha_envio,estado) 
+            VALUES (?,?,?,?,?,?,?)`; // Ajustado para reflejar la tabla notificaciones
             await db.execute(query, [
                 id_Notificaciones,
                 Fk_Dispositivos,
                 Fk_Productos,
                 tipo,
                 mensaje,
-                fecha_envio
+                fecha_envio,
+                estado
+                
             ]);
         } catch (err: any) {
             throw new Error(`Error inserting notificacion: ${err.message}`); // Mensaje de error ajustado

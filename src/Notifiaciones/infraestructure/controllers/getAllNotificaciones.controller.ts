@@ -28,7 +28,9 @@ export class CrearNotifiacionController {
                 !nuevaNotifiacion.Fk_Productos ||
                 !nuevaNotifiacion.tipo ||
                 !nuevaNotifiacion.mensaje ||
-                !nuevaNotifiacion.fecha_envio
+                !nuevaNotifiacion.fecha_envio||
+                !nuevaNotifiacion.estado
+
             ) {
                 return res.status(400).json({ message: "Faltan Datos" });
             }

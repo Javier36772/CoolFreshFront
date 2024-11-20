@@ -27,7 +27,7 @@ app.use(Express.json());
 app.use('/Dispositivo', dispositivolRouter);
 app.use('/Lectura', LecturaRouter);
 app.use('/Notificacion', NotificacionesRouter);
-app.use('/Productos', ProductosRouter);
+app.use('/productos', ProductosRouter);
 app.use('/Usuarios', UsuariosRouter);
 
 dotenv.config();
@@ -37,6 +37,7 @@ console.log("HOST:", process.env.HOST);
 console.log("USERDB:", process.env.USERDB);
 console.log("PASSWORDDB:", process.env.PASSWORDDB);
 console.log("DATABASE:", process.env.DATABASE);
+
 
 // Conectar a la base de datos MySQL (esto está bien en el puerto 3306)
 db.connect()

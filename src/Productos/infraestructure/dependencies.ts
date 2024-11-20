@@ -1,5 +1,4 @@
-import { getAllProductosController, deleteProductoController } from "./controllers/getAllProductos.controller";
-import { agregarProductoController } from "./controllers/getAllProductos.controller"; // Importa el controlador correcto
+import { getAllProductosController, deleteProductoController, agregarProductoController } from "./controllers/getAllProductos.controller";
 import { MySqlAdapter } from "./adapters/mysql.adapter";
 import { getAllProductosService, agregarProductoService, deleteProductoService } from "../application/services/Productos.services";
 
