@@ -23,7 +23,7 @@ export class agregarProductoController {
             const nuevoProducto = req.body as Productos;
             console.log(nuevoProducto)
             if (
-                !nuevoProducto.id_Productos ||
+                
                 !nuevoProducto.Nombre ||
                 !nuevoProducto.Fk_Dispositivos2 ||
                 !nuevoProducto.temperatura_optima_min ||

@@ -8,6 +8,6 @@ NotificacionesRouter.get("/", (AllNotifiacionesController.run as unknown as (req
 
 NotificacionesRouter.post("/", (CrearNotifiacionControllerInstance.run as unknown as (req: Request, res: Response) => Promise<void>).bind(CrearNotifiacionControllerInstance));
 
-NotificacionesRouter.delete("/:id_Dispositivo", (deleteNotifiacionControllerInstance.run as unknown as (req: Request, res: Response) => Promise<void>).bind(deleteNotifiacionControllerInstance));
+NotificacionesRouter.delete("/:id_Notificaciones", (deleteNotifiacionControllerInstance.run as unknown as (req: Request, res: Response) => Promise<void>).bind(deleteNotifiacionControllerInstance));
 
 export default NotificacionesRouter;

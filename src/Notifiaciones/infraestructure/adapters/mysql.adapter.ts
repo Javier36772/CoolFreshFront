@@ -7,13 +7,25 @@ export class MySqlAdapter implements NotifiacionesNotificaciones {
    
     async getNotifiaciones(): Promise<Notifiaciones[]> { // Método renombrado
         try {
-            const query = "SELECT * FROM notificaciones"; // Cambiado "lecturas" a "notificaciones"
+            const query = `
+                SELECT 
+                    id_Notificaciones,
+                    Fk_Dispositivos,
+                    Nombre,
+                    tipo,
+                    mensaje,
+                    fecha_envio,
+                    estado
+                FROM coolfresh.notificaciones noti
+                INNER JOIN productos pro ON pro.id_Productos = noti.Fk_Productos
+            `; 
             const [res] = await db.execute(query);
             return res as Notifiaciones[];
         } catch (err: any) {
             throw new Error(`Error fetching notificaciones: ${err.message}`); // Mensaje de error ajustado
         }
     }
+    
 
     async agregarNotifiaciones(nuevaNotifiacion: Notifiaciones): Promise<void> { // Método renombrado
         try {
