@@ -12,6 +12,8 @@ RUN npm install
 # Copia todo el código fuente a la imagen
 COPY . .
 
+RUN chmod +x ./node_modules/.bin/tsc
+
 # Compila el código Typescript a JavaScript
 RUN npm run build
 
