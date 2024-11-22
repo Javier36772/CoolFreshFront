@@ -1,23 +1,24 @@
-# Usar una imagen base de Node.js
+# Usa una imagen de Node.js
 FROM node:16
 
-# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos del proyecto
-COPY ./CoolFreshFront/package*.json ./
+# Copia los archivos de configuración y dependencias
+COPY package.json tsconfig.json ./
 
-# Instalar las dependencias
+# Instala las dependencias
 RUN npm install
 
-# Copiar todo el código del proyecto
-COPY ./CoolFreshFront ./
+# Copia todo el código fuente a la imagen
+COPY . .
 
-# Ejecutar la compilación de TypeScript
+RUN chmod +x ./node_modules/.bin/tsc
+
+# Compila el código Typescript a JavaScript
 RUN npm run build
 
-# Exponer el puerto en el que la app va a correr
+# Expone el puerto en el que la API escuhará
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
+# Comando para inicar la aplicación 
 CMD ["npm", "start"]
