@@ -16,7 +16,7 @@ export class MySqlAdapter implements NotifiacionesNotificaciones {
                     mensaje,
                     fecha_envio,
                     estado
-                FROM coolfresh.notificaciones noti
+                FROM notificaciones noti
                 INNER JOIN productos pro ON pro.id_Productos = noti.Fk_Productos
             `; 
             const [res] = await db.execute(query);
